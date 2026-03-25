@@ -7,113 +7,113 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --roxo: #7c3aed;
-    --roxo-light: #ede9fe;
-    --roxo-mid: #a78bfa;
-    --roxo-pale: #f5f3ff;
-    --roxo-dark: #4c1d95;
-    --verde: #059669;
-    --verde-light: #d1fae5;
-    --laranja: #d97706;
-    --laranja-light: #fef3c7;
-    --vermelho: #dc2626;
-    --vermelho-light: #fee2e2;
-    --cinza: #6b7280;
-    --cinza-light: #f9fafb;
-    --borda: #e5e7eb;
-    --texto: #111827;
-    --texto-mid: #374151;
+    --roxo:#7c3aed;--roxo-light:#ede9fe;--roxo-mid:#a78bfa;--roxo-pale:#f5f3ff;--roxo-dark:#4c1d95;
+    --verde:#059669;--verde-light:#d1fae5;--laranja:#d97706;--laranja-light:#fef3c7;
+    --vermelho:#dc2626;--vermelho-light:#fee2e2;--cinza:#6b7280;--borda:#e5e7eb;
+    --texto:#111827;--texto-mid:#374151;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Plus Jakarta Sans', sans-serif; background: #fafafa; color: var(--texto); min-height: 100vh; }
-  .slide { display: none; min-height: 100vh; padding: 48px 64px; animation: fadeIn 0.4s ease; }
-  .slide.active { display: flex; flex-direction: column; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-  .navbar { position: fixed; top: 0; left: 0; right: 0; height: 56px; background: white; border-bottom: 1px solid var(--borda); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; z-index: 100; box-shadow: 0 1px 8px rgba(0,0,0,0.04); }
-  .nav-logo { font-family: 'Montserrat', sans-serif; font-size: 18px; color: var(--roxo-dark); letter-spacing: -0.3px; }
-  .nav-controls { display: flex; align-items: center; gap: 8px; }
-  .nav-btn { width: 36px; height: 36px; border: 1px solid var(--borda); border-radius: 8px; background: white; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; color: var(--texto-mid); }
-  .nav-btn:hover { background: var(--roxo-pale); border-color: var(--roxo-mid); color: var(--roxo); }
-  .nav-counter { font-size: 13px; color: var(--cinza); min-width: 60px; text-align: center; }
-  .nav-dots { display: flex; gap: 6px; align-items: center; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--borda); cursor: pointer; transition: all 0.2s; }
-  .dot.active { background: var(--roxo); width: 20px; border-radius: 4px; }
-  .slide { padding-top: 80px; }
-  .capa { justify-content: center; align-items: center; text-align: center; background: linear-gradient(145deg, #faf9ff 0%, #f0ebff 50%, #faf9ff 100%); position: relative; overflow: hidden; }
-  .capa::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%); border-radius: 50%; }
-  .capa::after { content: ''; position: absolute; bottom: -80px; left: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 70%); border-radius: 50%; }
-  .capa-tag { display: inline-block; background: var(--roxo-light); color: var(--roxo); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 99px; margin-bottom: 24px; }
-  .capa h1 { font-family: 'Montserrat', sans-serif; font-size: 56px; line-height: 1.1; color: var(--roxo-dark); margin-bottom: 16px; letter-spacing: -1px; }
-  .capa h1 em { font-style: italic; color: var(--roxo); }
-  .capa-sub { font-size: 18px; color: var(--cinza); font-weight: 300; margin-bottom: 48px; max-width: 500px; }
-  .capa-stats { display: flex; gap: 32px; justify-content: center; }
-  .capa-stat { text-align: center; }
-  .capa-stat-val { font-family: 'Montserrat', sans-serif; font-size: 28px; color: var(--roxo); }
-  .capa-stat-label { font-size: 12px; color: var(--cinza); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .divider-v { width: 1px; background: var(--borda); }
-  .slide-header { margin-bottom: 32px; }
-  .slide-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--roxo-light); color: var(--roxo); font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 99px; margin-bottom: 10px; }
-  .slide-title { font-family: 'Montserrat', sans-serif; font-size: 36px; color: var(--roxo-dark); letter-spacing: -0.5px; line-height: 1.15; }
-  .slide-sub { font-size: 14px; color: var(--cinza); margin-top: 6px; }
-  .resumo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
-  .resumo-card { background: white; border: 1px solid var(--borda); border-radius: 16px; padding: 20px; position: relative; overflow: hidden; }
-  .resumo-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--roxo); border-radius: 16px 16px 0 0; }
-  .resumo-card.green::before { background: var(--verde); }
-  .resumo-card.orange::before { background: var(--laranja); }
-  .resumo-card.red::before { background: var(--vermelho); }
-  .resumo-icon { font-size: 22px; margin-bottom: 10px; }
-  .resumo-label { font-size: 11px; color: var(--cinza); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
-  .resumo-val { font-family: 'Montserrat', sans-serif; font-size: 22px; color: var(--texto); line-height: 1; }
-  .resumo-badge { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 99px; margin-top: 8px; }
-  .resumo-badge.verde { background: var(--verde-light); color: var(--verde); }
-  .resumo-badge.laranja { background: var(--laranja-light); color: var(--laranja); }
-  .resumo-badge.roxo { background: var(--roxo-light); color: var(--roxo); }
-  .resumo-badge.vermelho { background: var(--vermelho-light); color: var(--vermelho); }
-  .table-card { background: white; border: 1px solid var(--borda); border-radius: 16px; overflow: hidden; flex: 1; }
-  .table-header { padding: 16px 20px; background: var(--roxo-pale); border-bottom: 1px solid var(--roxo-light); display: flex; align-items: center; gap: 10px; }
-  .table-header-icon { width: 32px; height: 32px; background: var(--roxo-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-  .table-header-title { font-size: 14px; font-weight: 600; color: var(--roxo-dark); }
-  .table-header-sub { font-size: 12px; color: var(--roxo); margin-top: 1px; }
-  table { width: 100%; border-collapse: collapse; }
-  th { padding: 10px 16px; font-size: 11px; font-weight: 600; color: var(--cinza); text-transform: uppercase; letter-spacing: 0.5px; text-align: left; background: #fafafa; border-bottom: 1px solid var(--borda); }
-  th.right { text-align: right; }
-  td { padding: 12px 16px; font-size: 13px; color: var(--texto-mid); border-bottom: 1px solid #f3f4f6; }
-  td.right { text-align: right; }
-  td.bold { font-weight: 600; color: var(--texto); }
-  td.verde { color: var(--verde); font-weight: 600; }
-  td.laranja { color: var(--laranja); font-weight: 600; }
-  td.vermelho { color: var(--vermelho); font-weight: 600; }
-  td.roxo { color: var(--roxo); font-weight: 600; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: var(--roxo-pale); }
-  .tr-total td { background: var(--roxo-pale) !important; font-weight: 700 !important; color: var(--roxo-dark) !important; border-top: 2px solid var(--roxo-light); }
-  .progress-wrap { display: flex; align-items: center; gap: 8px; }
-  .progress-bar { flex: 1; height: 6px; background: #f3f4f6; border-radius: 99px; overflow: hidden; min-width: 60px; }
-  .progress-fill { height: 100%; border-radius: 99px; transition: width 0.8s ease; }
-  .progress-fill.verde { background: var(--verde); }
-  .progress-fill.laranja { background: var(--laranja); }
-  .progress-fill.vermelho { background: var(--vermelho); }
-  .progress-fill.roxo { background: var(--roxo); }
-  .progress-pct { font-size: 11px; font-weight: 700; min-width: 36px; text-align: right; }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
-  .chip { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; }
-  .chip.aprovado { background: var(--verde-light); color: var(--verde); }
-  .chip.pendente { background: var(--laranja-light); color: var(--laranja); }
-  .chip.zero { background: #f3f4f6; color: var(--cinza); }
-  .final { justify-content: center; align-items: center; text-align: center; background: linear-gradient(145deg, #ede9fe 0%, #ddd6fe 100%); }
-  .final h2 { font-family: 'Montserrat', sans-serif; font-size: 48px; color: var(--roxo-dark); margin-bottom: 12px; letter-spacing: -0.5px; }
-  .final p { font-size: 16px; color: var(--roxo); margin-bottom: 40px; }
-  .final-grid { display: grid; gap: 16px; max-width: 700px; }
-  .final-card { background: rgba(255,255,255,0.7); border: 1px solid rgba(124,58,237,0.2); border-radius: 16px; padding: 20px; text-align: center; }
-  .final-card-val { font-family: 'Montserrat', sans-serif; font-size: 24px; color: var(--roxo-dark); margin-bottom: 4px; }
-  .final-card-label { font-size: 12px; color: var(--roxo); text-transform: uppercase; letter-spacing: 0.5px; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:#fafafa;color:var(--texto);min-height:100vh;}
+  .slide{display:none;min-height:100vh;padding:80px 64px 48px;animation:fadeIn 0.4s ease;}
+  .slide.active{display:flex;flex-direction:column;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .navbar{position:fixed;top:0;left:0;right:0;height:56px;background:white;border-bottom:1px solid var(--borda);display:flex;align-items:center;justify-content:space-between;padding:0 32px;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,0.04);}
+  .nav-logo{font-family:'Montserrat',sans-serif;font-size:18px;color:var(--roxo-dark);letter-spacing:-0.3px;}
+  .nav-controls{display:flex;align-items:center;gap:8px;}
+  .nav-btn{width:36px;height:36px;border:1px solid var(--borda);border-radius:8px;background:white;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.15s;color:var(--texto-mid);}
+  .nav-btn:hover{background:var(--roxo-pale);border-color:var(--roxo-mid);color:var(--roxo);}
+  .nav-counter{font-size:13px;color:var(--cinza);min-width:60px;text-align:center;}
+  .nav-dots{display:flex;gap:6px;align-items:center;}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--borda);cursor:pointer;transition:all 0.2s;}
+  .dot.active{background:var(--roxo);width:20px;border-radius:4px;}
+
+  /* CAPA */
+  .capa{justify-content:center;align-items:center;text-align:center;background:linear-gradient(145deg,#faf9ff 0%,#f0ebff 50%,#faf9ff 100%);position:relative;overflow:hidden;}
+  .capa::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,0.08) 0%,transparent 70%);border-radius:50%;}
+  .capa-tag{display:inline-block;background:var(--roxo-light);color:var(--roxo);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:99px;margin-bottom:24px;}
+  .capa h1{font-family:'Montserrat',sans-serif;font-size:56px;line-height:1.1;color:var(--roxo-dark);margin-bottom:16px;letter-spacing:-1px;}
+  .capa h1 em{font-style:italic;color:var(--roxo);}
+  .capa-sub{font-size:18px;color:var(--cinza);font-weight:300;margin-bottom:48px;}
+  .capa-stats{display:flex;gap:32px;justify-content:center;}
+  .capa-stat{text-align:center;}
+  .capa-stat-val{font-family:'Montserrat',sans-serif;font-size:28px;color:var(--roxo);}
+  .capa-stat-label{font-size:12px;color:var(--cinza);margin-top:2px;text-transform:uppercase;letter-spacing:0.5px;}
+  .divider-v{width:1px;background:var(--borda);}
+
+  /* SLIDE HEADER */
+  .slide-header{margin-bottom:24px;}
+  .slide-tag{display:inline-flex;align-items:center;gap:6px;background:var(--roxo-light);color:var(--roxo);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:99px;margin-bottom:8px;}
+  .slide-title{font-family:'Montserrat',sans-serif;font-size:32px;color:var(--roxo-dark);letter-spacing:-0.5px;line-height:1.15;}
+  .slide-sub{font-size:13px;color:var(--cinza);margin-top:4px;}
+
+  /* CARDS */
+  .resumo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+  .resumo-card{background:white;border:1px solid var(--borda);border-radius:14px;padding:16px;position:relative;overflow:hidden;}
+  .resumo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--roxo);border-radius:14px 14px 0 0;}
+  .resumo-card.green::before{background:var(--verde);}
+  .resumo-card.orange::before{background:var(--laranja);}
+  .resumo-card.red::before{background:var(--vermelho);}
+  .resumo-icon{font-size:20px;margin-bottom:8px;}
+  .resumo-label{font-size:10px;color:var(--cinza);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:4px;}
+  .resumo-val{font-family:'Montserrat',sans-serif;font-size:20px;color:var(--texto);line-height:1;}
+  .resumo-badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;padding:2px 7px;border-radius:99px;margin-top:6px;}
+  .resumo-badge.laranja{background:var(--laranja-light);color:var(--laranja);}
+  .resumo-badge.vermelho{background:var(--vermelho-light);color:var(--vermelho);}
+
+  /* TABLE */
+  .table-card{background:white;border:1px solid var(--borda);border-radius:14px;overflow:hidden;flex:1;display:flex;flex-direction:column;}
+  .table-header{padding:12px 16px;background:var(--roxo-pale);border-bottom:1px solid var(--roxo-light);display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .table-header-icon{width:28px;height:28px;background:var(--roxo-light);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .table-header-title{font-size:13px;font-weight:600;color:var(--roxo-dark);}
+  .table-header-sub{font-size:11px;color:var(--roxo);margin-top:1px;}
+  .table-scroll{overflow-y:auto;flex:1;}
+  table{width:100%;border-collapse:collapse;}
+  th{padding:8px 14px;font-size:10px;font-weight:600;color:var(--cinza);text-transform:uppercase;letter-spacing:0.5px;text-align:left;background:#fafafa;border-bottom:1px solid var(--borda);position:sticky;top:0;}
+  th.right{text-align:right;}
+  td{padding:9px 14px;font-size:12px;color:var(--texto-mid);border-bottom:1px solid #f3f4f6;}
+  td.right{text-align:right;}
+  td.bold{font-weight:600;color:var(--texto);}
+  td.verde{color:var(--verde);font-weight:600;}
+  td.vermelho{color:var(--vermelho);font-weight:600;}
+  td.laranja{color:var(--laranja);font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  tr:hover td{background:var(--roxo-pale);}
+  .tr-total td{background:var(--roxo-pale)!important;font-weight:700!important;color:var(--roxo-dark)!important;border-top:2px solid var(--roxo-light);}
+
+  /* PROGRESS */
+  .progress-wrap{display:flex;align-items:center;gap:6px;}
+  .progress-bar{flex:1;height:5px;background:#f3f4f6;border-radius:99px;overflow:hidden;min-width:50px;}
+  .progress-fill{height:100%;border-radius:99px;}
+  .progress-fill.verde{background:var(--verde);}
+  .progress-fill.laranja{background:var(--laranja);}
+  .progress-fill.vermelho{background:var(--vermelho);}
+  .progress-fill.roxo{background:var(--roxo);}
+  .progress-pct{font-size:10px;font-weight:700;min-width:34px;text-align:right;}
+
+  /* LAYOUT */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;min-height:0;}
+
+  /* FINAL */
+  .final{justify-content:center;align-items:center;text-align:center;background:linear-gradient(145deg,#ede9fe 0%,#ddd6fe 100%);}
+  .final h2{font-family:'Montserrat',sans-serif;font-size:44px;color:var(--roxo-dark);margin-bottom:10px;}
+  .final p{font-size:15px;color:var(--roxo);margin-bottom:32px;}
+  .final-grid{display:grid;gap:12px;}
+  .final-card{background:rgba(255,255,255,0.7);border:1px solid rgba(124,58,237,0.2);border-radius:14px;padding:18px;text-align:center;}
+  .final-card-val{font-family:'Montserrat',sans-serif;font-size:22px;color:var(--roxo-dark);margin-bottom:4px;}
+  .final-card-label{font-size:11px;color:var(--roxo);text-transform:uppercase;letter-spacing:0.5px;}
+
+  .alert-box{padding:12px 16px;border-top:1px solid;flex-shrink:0;}
+  .alert-box.laranja{background:var(--laranja-light);border-color:#fde68a;}
+  .alert-box.vermelho{background:var(--vermelho-light);border-color:#fecaca;}
+  .alert-title{font-size:11px;font-weight:600;margin-bottom:3px;}
+  .alert-text{font-size:12px;line-height:1.5;}
 </style>
 </head>
 <body>
 
 <div class="navbar">
   <div class="nav-logo">CAPEX TI — Apresentação Executiva</div>
-  <div style="display:flex; align-items:center; gap:20px;">
+  <div style="display:flex;align-items:center;gap:20px;">
     <div class="nav-dots" id="navDots"></div>
     <div class="nav-controls">
       <button class="nav-btn" onclick="prevSlide()">◀</button>
@@ -129,25 +129,13 @@
   <h1>Orçamento <em>TI</em><br>2026</h1>
   <p class="capa-sub">Consolidação de aprovações e pendências por categoria</p>
   <div class="capa-stats">
-    <div class="capa-stat">
-      <div class="capa-stat-val">R$ 23,3M</div>
-      <div class="capa-stat-label">Total Aprovado</div>
-    </div>
+    <div class="capa-stat"><div class="capa-stat-val">R$ 23,3M</div><div class="capa-stat-label">Total Aprovado</div></div>
     <div class="divider-v"></div>
-    <div class="capa-stat">
-      <div class="capa-stat-val">R$ 55,3M</div>
-      <div class="capa-stat-label">Falta Aprovar</div>
-    </div>
+    <div class="capa-stat"><div class="capa-stat-val">R$ 55,3M</div><div class="capa-stat-label">Falta Aprovar</div></div>
     <div class="divider-v"></div>
-    <div class="capa-stat">
-      <div class="capa-stat-val">R$ 78,6M</div>
-      <div class="capa-stat-label">Total Orçado</div>
-    </div>
+    <div class="capa-stat"><div class="capa-stat-val">R$ 78,6M</div><div class="capa-stat-label">Total Orçado</div></div>
     <div class="divider-v"></div>
-    <div class="capa-stat">
-      <div class="capa-stat-val">29,6%</div>
-      <div class="capa-stat-label">% Aprovado</div>
-    </div>
+    <div class="capa-stat"><div class="capa-stat-val">29,6%</div><div class="capa-stat-label">% Aprovado</div></div>
   </div>
 </div>
 
@@ -158,293 +146,157 @@
     <div class="slide-title">Resumo Consolidado por Conta</div>
     <div class="slide-sub">Valores aprovados vs. pendentes de aprovação — todas as contas</div>
   </div>
-
   <div class="resumo-grid">
     <div class="resumo-card">
       <div class="resumo-icon">🖥️</div>
       <div class="resumo-label">Projetos de TI + Salesforce</div>
       <div class="resumo-val">R$ 7,2M</div>
-      <div style="font-size:12px; color:var(--cinza); margin-top:2px;">aprovado</div>
+      <div style="font-size:11px;color:var(--cinza);margin-top:2px;">aprovado</div>
       <div class="resumo-badge laranja">⚠ R$ 25,5M pendente</div>
     </div>
     <div class="resumo-card green">
       <div class="resumo-icon">🤝</div>
       <div class="resumo-label">Terceiros</div>
       <div class="resumo-val">R$ 15,3M</div>
-      <div style="font-size:12px; color:var(--cinza); margin-top:2px;">aprovado</div>
+      <div style="font-size:11px;color:var(--cinza);margin-top:2px;">aprovado</div>
       <div class="resumo-badge vermelho">⚠ R$ 17,5M pendente</div>
     </div>
     <div class="resumo-card orange">
       <div class="resumo-icon">📦</div>
       <div class="resumo-label">Equipamentos</div>
       <div class="resumo-val">R$ 767K</div>
-      <div style="font-size:12px; color:var(--cinza); margin-top:2px;">aprovado</div>
+      <div style="font-size:11px;color:var(--cinza);margin-top:2px;">aprovado</div>
       <div class="resumo-badge vermelho">⚠ R$ 9,5M pendente</div>
     </div>
     <div class="resumo-card red">
       <div class="resumo-icon">🔐</div>
       <div class="resumo-label">Licenças de Software</div>
       <div class="resumo-val">R$ 0</div>
-      <div style="font-size:12px; color:var(--cinza); margin-top:2px;">aprovado</div>
+      <div style="font-size:11px;color:var(--cinza);margin-top:2px;">aprovado</div>
       <div class="resumo-badge vermelho">⚠ R$ 2,95M pendente</div>
     </div>
   </div>
-
   <div class="table-card">
     <div class="table-header">
       <div class="table-header-icon">📊</div>
-      <div>
-        <div class="table-header-title">Visão Consolidada — Orçado vs. Aprovado</div>
-        <div class="table-header-sub">% de aprovação por categoria</div>
-      </div>
+      <div><div class="table-header-title">Visão Consolidada — Orçado vs. Aprovado</div><div class="table-header-sub">% de aprovação por categoria</div></div>
     </div>
     <table>
-      <thead>
-        <tr>
-          <th>Categoria</th>
-          <th class="right">Total Aprovado</th>
-          <th class="right">Falta Aprovar</th>
-          <th class="right">Total Orçado</th>
-          <th>% Aprovado</th>
-        </tr>
-      </thead>
+      <thead><tr>
+        <th>Categoria</th><th class="right">Total Aprovado</th><th class="right">Falta Aprovar</th><th class="right">Total Orçado</th><th>% Aprovado</th>
+      </tr></thead>
       <tbody>
         <tr>
           <td class="bold">🖥️ Projetos de TI em Andamento</td>
-          <td class="right verde">R$ 4.535.134,68</td>
-          <td class="right vermelho">R$ 18.852.363,26</td>
-          <td class="right">R$ 23.387.497,94</td>
-          <td>
-            <div class="progress-wrap">
-              <div class="progress-bar"><div class="progress-fill vermelho" style="width:19.4%"></div></div>
-              <div class="progress-pct" style="color:var(--vermelho)">19,4%</div>
-            </div>
-          </td>
+          <td class="right verde">R$ 4.535.134,68</td><td class="right vermelho">R$ 18.852.363,26</td><td class="right">R$ 23.387.497,94</td>
+          <td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:19.4%"></div></div><div class="progress-pct" style="color:var(--vermelho)">19,4%</div></div></td>
         </tr>
         <tr>
           <td class="bold">💼 Salesforce — AELA</td>
-          <td class="right verde">R$ 2.695.776,66</td>
-          <td class="right vermelho">R$ 6.613.874,16</td>
-          <td class="right">R$ 9.309.650,82</td>
-          <td>
-            <div class="progress-wrap">
-              <div class="progress-bar"><div class="progress-fill laranja" style="width:29%"></div></div>
-              <div class="progress-pct" style="color:var(--laranja)">29,0%</div>
-            </div>
-          </td>
+          <td class="right verde">R$ 2.695.776,66</td><td class="right vermelho">R$ 6.613.874,16</td><td class="right">R$ 9.309.650,82</td>
+          <td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill laranja" style="width:29%"></div></div><div class="progress-pct" style="color:var(--laranja)">29,0%</div></div></td>
         </tr>
         <tr>
           <td class="bold">🤝 Terceiros</td>
-          <td class="right verde">R$ 15.254.547,99</td>
-          <td class="right vermelho">R$ 17.452.350,83</td>
-          <td class="right">R$ 32.706.898,82</td>
-          <td>
-            <div class="progress-wrap">
-              <div class="progress-bar"><div class="progress-fill laranja" style="width:46.6%"></div></div>
-              <div class="progress-pct" style="color:var(--laranja)">46,6%</div>
-            </div>
-          </td>
+          <td class="right verde">R$ 15.254.547,99</td><td class="right vermelho">R$ 17.452.350,83</td><td class="right">R$ 32.706.898,82</td>
+          <td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill laranja" style="width:46.6%"></div></div><div class="progress-pct" style="color:var(--laranja)">46,6%</div></div></td>
         </tr>
         <tr>
           <td class="bold">📦 Equipamentos Especiais</td>
-          <td class="right verde">R$ 767.200,00</td>
-          <td class="right vermelho">R$ 9.462.492,90</td>
-          <td class="right">R$ 10.229.692,90</td>
-          <td>
-            <div class="progress-wrap">
-              <div class="progress-bar"><div class="progress-fill vermelho" style="width:7.5%"></div></div>
-              <div class="progress-pct" style="color:var(--vermelho)">7,5%</div>
-            </div>
-          </td>
+          <td class="right verde">R$ 767.200,00</td><td class="right vermelho">R$ 9.462.492,90</td><td class="right">R$ 10.229.692,90</td>
+          <td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:7.5%"></div></div><div class="progress-pct" style="color:var(--vermelho)">7,5%</div></div></td>
         </tr>
         <tr>
           <td class="bold">🔐 Licenças de Software</td>
-          <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-          <td class="right vermelho">R$ 2.952.250,00</td>
-          <td class="right">R$ 2.952.250,00</td>
-          <td>
-            <div class="progress-wrap">
-              <div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div>
-              <div class="progress-pct" style="color:var(--vermelho)">0%</div>
-            </div>
-          </td>
+          <td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 2.952.250,00</td><td class="right">R$ 2.952.250,00</td>
+          <td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td>
         </tr>
         <tr class="tr-total">
           <td>TOTAL GERAL</td>
-          <td class="right">R$ 23.252.659,33</td>
-          <td class="right">R$ 55.333.331,15</td>
-          <td class="right">R$ 78.585.990,48</td>
-          <td>
-            <div class="progress-wrap">
-              <div class="progress-bar"><div class="progress-fill roxo" style="width:29.6%"></div></div>
-              <div class="progress-pct" style="color:var(--roxo)">29,6%</div>
-            </div>
-          </td>
+          <td class="right">R$ 23.252.659,33</td><td class="right">R$ 55.333.331,15</td><td class="right">R$ 78.585.990,48</td>
+          <td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill roxo" style="width:29.6%"></div></div><div class="progress-pct" style="color:var(--roxo)">29,6%</div></div></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- SLIDE 3 — PROJETOS DE TI + TERCEIROS -->
+<!-- SLIDE 3 — PROJETOS DE TI DETALHADOS -->
 <div class="slide">
   <div class="slide-header">
-    <div class="slide-tag">🖥️ Projetos & Terceiros</div>
-    <div class="slide-title">Projetos de TI em Andamento + Terceiros</div>
-    <div class="slide-sub">Detalhamento por projeto — aprovado vs. pendente</div>
+    <div class="slide-tag">🖥️ Projetos de TI</div>
+    <div class="slide-title">Projetos de TI em Andamento — Detalhamento Completo</div>
+    <div class="slide-sub">19,4% aprovado · R$ 4,5M aprovado de R$ 23,4M orçado</div>
   </div>
-
   <div class="grid-2">
+
+    <!-- PROJETOS TI -->
     <div class="table-card">
       <div class="table-header">
         <div class="table-header-icon">🖥️</div>
-        <div>
-          <div class="table-header-title">Projetos de TI em Andamento</div>
-          <div class="table-header-sub">19,4% aprovado do total orçado</div>
-        </div>
+        <div><div class="table-header-title">Projetos de TI em Andamento</div><div class="table-header-sub">19,4% aprovado — R$ 23,4M total orçado</div></div>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Projeto</th>
-            <th class="right">Aprovado</th>
-            <th class="right">Falta</th>
-            <th>%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="bold">Novos Portais</div>
-              <div style="font-size:11px;color:var(--cinza)">Projeto interno</div>
-            </td>
-            <td class="right verde">R$ 4.385.134,68</td>
-            <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill verde" style="width:100%"></div></div>
-                <div class="progress-pct" style="color:var(--verde)">100%</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="bold">IA Multiagentes</div>
-              <div style="font-size:11px;color:var(--cinza)">Inteligência Artificial (VITRULAB)</div>
-            </td>
-            <td class="right verde">R$ 150.000,00</td>
-            <td class="right vermelho">R$ 540.000,00</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill laranja" style="width:21.7%"></div></div>
-                <div class="progress-pct" style="color:var(--laranja)">21,7%</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="bold">Projeto TI Diversos</div>
-              <div style="font-size:11px;color:var(--cinza)">Projeto Adam</div>
-            </td>
-            <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-            <td class="right vermelho">R$ 18.312.363,26</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div>
-                <div class="progress-pct" style="color:var(--vermelho)">0%</div>
-              </div>
-            </td>
-          </tr>
-          <tr class="tr-total">
-            <td>SUBTOTAL</td>
-            <td class="right">R$ 4.535.134,68</td>
-            <td class="right">R$ 18.852.363,26</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill roxo" style="width:19.4%"></div></div>
-                <div class="progress-pct" style="color:var(--roxo)">19,4%</div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div style="margin-top:1px;">
-        <div class="table-header" style="background:#fef9c3; border-top:1px solid #fde68a; border-bottom:none;">
-          <div class="table-header-icon" style="background:#fef08a;">💼</div>
-          <div>
-            <div class="table-header-title" style="color:#713f12;">Salesforce — AELA</div>
-            <div class="table-header-sub" style="color:#92400e;">29% aprovado do total orçado</div>
-          </div>
-        </div>
+      <div class="table-scroll">
         <table>
+          <thead><tr><th>Projeto</th><th class="right">Aprovado</th><th class="right">Pendente</th><th>%</th></tr></thead>
           <tbody>
-            <tr>
-              <td class="bold">Salesforce AELA</td>
-              <td class="right verde">R$ 2.695.776,66</td>
-              <td class="right vermelho">R$ 6.613.874,16</td>
-              <td>
-                <div class="progress-wrap">
-                  <div class="progress-bar"><div class="progress-fill laranja" style="width:29%"></div></div>
-                  <div class="progress-pct" style="color:var(--laranja)">29%</div>
-                </div>
-              </td>
-            </tr>
+            <tr><td><div class="bold">Novos Portais</div></td><td class="right verde">R$ 4.385.134,68</td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill verde" style="width:100%"></div></div><div class="progress-pct" style="color:var(--verde)">100%</div></div></td></tr>
+            <tr><td><div class="bold">IA Multiagente</div><div style="font-size:10px;color:var(--cinza)">Vitrulab</div></td><td class="right verde">R$ 150.000,00</td><td class="right vermelho">R$ 540.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill laranja" style="width:21.7%"></div></div><div class="progress-pct" style="color:var(--laranja)">21,7%</div></div></td></tr>
+            <tr><td><div class="bold">IA Hub de Correções</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 4.531.600,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Sofia</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 3.753.600,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Infra - Garantia Disponibilidade</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 1.484.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Edu-vitrulab</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 1.600.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IAs para CSC</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 959.200,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Editech - Ferramentas Estúdio</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 670.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Data Center - Crescimento</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 800.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Cobrança Ativa</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 554.115,67</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Expansão Acadêmica</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 395.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Automação do Desenvolvimento</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 446.548,88</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA VitruChat-vitrulab</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 432.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Segurança - Proteção Aplicações</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 693.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Novos Experimentos</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 289.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA para Polos-vitrulab</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 280.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Construção de Conteúdo</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 200.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Editech - Estúdio Gravação Móvel</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 140.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Estágios</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 132.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Escritório de Dados - Alt. MS PBI</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 131.480,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Monitoramento CSC-vitrulab</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 109.132,45</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Permanência</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 309.686,26</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Personalização de Conteúdo</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 300.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA ValidaAI</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 90.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">IA Elaboração de Questões</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 12.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr class="tr-total"><td>SUBTOTAL</td><td class="right">R$ 4.535.134,68</td><td class="right">R$ 18.852.363,26</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill roxo" style="width:19.4%"></div></div><div class="progress-pct" style="color:var(--roxo)">19,4%</div></div></td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
+    <!-- TERCEIROS -->
     <div class="table-card">
       <div class="table-header">
         <div class="table-header-icon">🤝</div>
-        <div>
-          <div class="table-header-title">Terceiros</div>
-          <div class="table-header-sub">46,6% aprovado do total orçado</div>
-        </div>
+        <div><div class="table-header-title">Terceiros</div><div class="table-header-sub">46,6% aprovado — R$ 32,7M total orçado</div></div>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Descrição</th>
-            <th class="right">Aprovado</th>
-            <th class="right">Falta</th>
-            <th>%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="bold">Projetos Terceiros</div>
-              <div style="font-size:11px;color:var(--cinza)">Serviços externos</div>
-            </td>
-            <td class="right verde">R$ 15.254.547,99</td>
-            <td class="right vermelho">R$ 17.452.350,83</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill laranja" style="width:46.6%"></div></div>
-                <div class="progress-pct" style="color:var(--laranja)">46,6%</div>
-              </div>
-            </td>
-          </tr>
-          <tr class="tr-total">
-            <td>SUBTOTAL</td>
-            <td class="right">R$ 15.254.547,99</td>
-            <td class="right">R$ 17.452.350,83</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill roxo" style="width:46.6%"></div></div>
-                <div class="progress-pct" style="color:var(--roxo)">46,6%</div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div style="padding:16px 20px; background:var(--laranja-light); border-top:1px solid #fde68a;">
-        <div style="font-size:12px; font-weight:600; color:var(--laranja); margin-bottom:4px;">⚠️ Atenção</div>
-        <div style="font-size:13px; color:#92400e; line-height:1.5;">O valor pendente de terceiros (R$ 17,5M) representa o maior gap de aprovação em valor absoluto do orçamento.</div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Frente</th><th class="right">Aprovado</th><th class="right">Pendente</th><th>%</th></tr></thead>
+          <tbody>
+            <tr><td><div class="bold">BAU - Plataformas</div><div style="font-size:10px;color:var(--cinza)">Recursos externos</div></td><td class="right verde">R$ 6.896.154,59</td><td class="right vermelho">R$ 7.064.353,49</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill laranja" style="width:49.4%"></div></div><div class="progress-pct" style="color:var(--laranja)">49,4%</div></div></td></tr>
+            <tr><td><div class="bold">BAU - Infra</div><div style="font-size:10px;color:var(--cinza)">Recursos externos</div></td><td class="right verde">R$ 2.732.582,41</td><td class="right vermelho">R$ 3.091.625,61</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill laranja" style="width:46.9%"></div></div><div class="progress-pct" style="color:var(--laranja)">46,9%</div></div></td></tr>
+            <tr><td><div class="bold">Modernização</div></td><td class="right verde">R$ 2.281.837,77</td><td class="right vermelho">R$ 2.341.262,34</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill laranja" style="width:49.4%"></div></div><div class="progress-pct" style="color:var(--laranja)">49,4%</div></div></td></tr>
+            <tr><td><div class="bold">Dados</div></td><td class="right verde">R$ 1.478.309,94</td><td class="right vermelho">R$ 1.514.366,28</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill laranja" style="width:49.4%"></div></div><div class="progress-pct" style="color:var(--laranja)">49,4%</div></div></td></tr>
+            <tr><td><div class="bold">Vitrulab</div></td><td class="right verde">R$ 1.488.616,65</td><td class="right vermelho">R$ 1.528.467,30</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill laranja" style="width:49.3%"></div></div><div class="progress-pct" style="color:var(--laranja)">49,3%</div></div></td></tr>
+            <tr><td><div class="bold">IA First</div></td><td class="right verde">R$ 377.046,63</td><td class="right vermelho">R$ 1.912.275,81</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:16.5%"></div></div><div class="progress-pct" style="color:var(--vermelho)">16,5%</div></div></td></tr>
+            <tr class="tr-total"><td>SUBTOTAL</td><td class="right">R$ 15.254.547,99</td><td class="right">R$ 17.452.350,83</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill roxo" style="width:46.6%"></div></div><div class="progress-pct" style="color:var(--roxo)">46,6%</div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert-box laranja">
+        <div class="alert-title" style="color:var(--laranja)">⚠️ Atenção</div>
+        <div class="alert-text" style="color:#92400e;">O valor pendente de terceiros (R$ 17,5M) representa o maior gap em valor absoluto. IA First com apenas 16,5% aprovado merece atenção.</div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -455,164 +307,46 @@
     <div class="slide-title">Equipamentos Especiais + Licenças de Software</div>
     <div class="slide-sub">Detalhamento por item — aprovado vs. pendente</div>
   </div>
-
   <div class="grid-2">
     <div class="table-card">
       <div class="table-header">
         <div class="table-header-icon">📦</div>
-        <div>
-          <div class="table-header-title">Equipamentos Especiais</div>
-          <div class="table-header-sub">7,5% aprovado — maior pendência em volume</div>
-        </div>
+        <div><div class="table-header-title">Equipamentos Especiais</div><div class="table-header-sub">7,5% aprovado — R$ 10,2M total orçado</div></div>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th class="right">Aprovado</th>
-            <th class="right">Falta</th>
-            <th>%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="bold">Data Center</div>
-              <div style="font-size:11px;color:var(--cinza)">Crescimento do negócio</div>
-            </td>
-            <td class="right verde">R$ 767.200,00</td>
-            <td class="right vermelho">R$ 6.578.199,90</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill vermelho" style="width:10.4%"></div></div>
-                <div class="progress-pct" style="color:var(--vermelho)">10,4%</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="bold">Chromebooks</div>
-              <div style="font-size:11px;color:var(--cinza)">Dispositivos usuários</div>
-            </td>
-            <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-            <td class="right vermelho">R$ 2.822.500,00</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div>
-                <div class="progress-pct" style="color:var(--vermelho)">0%</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><div class="bold">Equipamentos Especiais</div></td>
-            <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-            <td class="right vermelho">R$ 61.793,00</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div>
-                <div class="progress-pct" style="color:var(--vermelho)">0%</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><div class="bold">Segurança</div></td>
-            <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-            <td class="right vermelho">R$ 300.000,00</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div>
-                <div class="progress-pct" style="color:var(--vermelho)">0%</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><div class="bold">Outros</div></td>
-            <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-            <td class="right vermelho">R$ 700.000,00</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div>
-                <div class="progress-pct" style="color:var(--vermelho)">0%</div>
-              </div>
-            </td>
-          </tr>
-          <tr class="tr-total">
-            <td>SUBTOTAL</td>
-            <td class="right">R$ 767.200,00</td>
-            <td class="right">R$ 9.462.492,90</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill roxo" style="width:7.5%"></div></div>
-                <div class="progress-pct" style="color:var(--roxo)">7,5%</div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Item</th><th class="right">Aprovado</th><th class="right">Pendente</th><th>%</th></tr></thead>
+          <tbody>
+            <tr><td><div class="bold">Data Center - Crescimento</div><div style="font-size:10px;color:var(--cinza)">Crescimento do negócio</div></td><td class="right verde">R$ 767.200,00</td><td class="right vermelho">R$ 2.174.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill laranja" style="width:26.1%"></div></div><div class="progress-pct" style="color:var(--laranja)">26,1%</div></div></td></tr>
+            <tr><td><div class="bold">Data Center - Obsolescência</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 1.500.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Rede - Tratamento Obsolescência</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 2.900.199,90</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Chromebooks</div><div style="font-size:10px;color:var(--cinza)">Dispositivos usuários</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 2.822.500,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Especiais / Diversos</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 65.793,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr class="tr-total"><td>SUBTOTAL</td><td class="right">R$ 767.200,00</td><td class="right">R$ 9.462.492,90</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill roxo" style="width:7.5%"></div></div><div class="progress-pct" style="color:var(--roxo)">7,5%</div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="table-card">
       <div class="table-header">
         <div class="table-header-icon">🔐</div>
-        <div>
-          <div class="table-header-title">Licenças de Uso de Software</div>
-          <div class="table-header-sub">0% aprovado — nenhuma licença liberada</div>
-        </div>
+        <div><div class="table-header-title">Licenças de Uso de Software</div><div class="table-header-sub">0% aprovado — nenhuma licença liberada</div></div>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th class="right">Aprovado</th>
-            <th class="right">Falta</th>
-            <th>%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="bold">Segurança</div>
-              <div style="font-size:11px;color:var(--cinza)">Licenças de segurança</div>
-            </td>
-            <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-            <td class="right vermelho">R$ 2.917.050,00</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div>
-                <div class="progress-pct" style="color:var(--vermelho)">0%</div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="bold">Outros</div>
-              <div style="font-size:11px;color:var(--cinza)">Demais licenças</div>
-            </td>
-            <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-            <td class="right vermelho">R$ 35.200,00</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div>
-                <div class="progress-pct" style="color:var(--vermelho)">0%</div>
-              </div>
-            </td>
-          </tr>
-          <tr class="tr-total">
-            <td>SUBTOTAL</td>
-            <td class="right" style="color:var(--cinza)">R$ 0,00</td>
-            <td class="right">R$ 2.952.250,00</td>
-            <td>
-              <div class="progress-wrap">
-                <div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div>
-                <div class="progress-pct" style="color:var(--vermelho)">0%</div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div style="padding:16px 20px; background:var(--vermelho-light); border-top:1px solid #fecaca;">
-        <div style="font-size:12px; font-weight:600; color:var(--vermelho); margin-bottom:4px;">🔴 Crítico</div>
-        <div style="font-size:13px; color:#991b1b; line-height:1.5;">Nenhuma licença de software foi aprovada. O item de Segurança (R$ 2,9M) requer atenção prioritária.</div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Item</th><th class="right">Aprovado</th><th class="right">Pendente</th><th>%</th></tr></thead>
+          <tbody>
+            <tr><td><div class="bold">Segurança - Renovação Licenciamento</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 2.400.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Segurança - Proteção de Aplicações</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 517.000,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr><td><div class="bold">Automação do Desenvolvimento</div></td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right vermelho">R$ 35.250,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+            <tr class="tr-total"><td>SUBTOTAL</td><td class="right" style="color:var(--cinza)">R$ 0,00</td><td class="right">R$ 2.952.250,00</td><td><div class="progress-wrap"><div class="progress-bar"><div class="progress-fill vermelho" style="width:0%"></div></div><div class="progress-pct" style="color:var(--vermelho)">0%</div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert-box vermelho">
+        <div class="alert-title" style="color:var(--vermelho)">🔴 Crítico</div>
+        <div class="alert-text" style="color:#991b1b;">Nenhuma licença foi aprovada. Segurança — Renovação de Licenciamento (R$ 2,4M) e Proteção de Aplicações (R$ 517K) requerem atenção prioritária.</div>
       </div>
     </div>
   </div>
@@ -622,77 +356,36 @@
 <div class="slide final">
   <h2>Resumo das Pendências</h2>
   <p>Total de R$ 55,3M aguardando aprovação — 70,4% do orçamento total</p>
-  <div class="final-grid" style="grid-template-columns: repeat(4, 1fr); max-width: 900px;">
-    <div class="final-card">
-      <div class="final-card-val">R$ 23,3M</div>
-      <div class="final-card-label">Total Aprovado</div>
-    </div>
-    <div class="final-card">
-      <div class="final-card-val">R$ 55,3M</div>
-      <div class="final-card-label">Total Pendente</div>
-    </div>
-    <div class="final-card">
-      <div class="final-card-val">R$ 78,6M</div>
-      <div class="final-card-label">Total Orçado</div>
-    </div>
-    <div class="final-card">
-      <div class="final-card-val">29,6%</div>
-      <div class="final-card-label">% Aprovado</div>
-    </div>
+  <div class="final-grid" style="grid-template-columns:repeat(4,1fr);max-width:900px;">
+    <div class="final-card"><div class="final-card-val">R$ 23,3M</div><div class="final-card-label">Total Aprovado</div></div>
+    <div class="final-card"><div class="final-card-val">R$ 55,3M</div><div class="final-card-label">Total Pendente</div></div>
+    <div class="final-card"><div class="final-card-val">R$ 78,6M</div><div class="final-card-label">Total Orçado</div></div>
+    <div class="final-card"><div class="final-card-val">29,6%</div><div class="final-card-label">% Aprovado</div></div>
   </div>
-  <div style="margin-top: 24px; font-size: 13px; color: var(--roxo); margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase;">Pendências por conta</div>
-  <div class="final-grid" style="grid-template-columns: repeat(5, 1fr); max-width: 1000px;">
-    <div class="final-card">
-      <div class="final-card-val">R$ 18,9M</div>
-      <div class="final-card-label">Projetos de TI</div>
-    </div>
-    <div class="final-card">
-      <div class="final-card-val">R$ 6,6M</div>
-      <div class="final-card-label">Salesforce</div>
-    </div>
-    <div class="final-card">
-      <div class="final-card-val">R$ 17,5M</div>
-      <div class="final-card-label">Terceiros</div>
-    </div>
-    <div class="final-card">
-      <div class="final-card-val">R$ 9,5M</div>
-      <div class="final-card-label">Equipamentos</div>
-    </div>
-    <div class="final-card">
-      <div class="final-card-val">R$ 2,95M</div>
-      <div class="final-card-label">Licenças Software</div>
-    </div>
+  <div style="margin-top:24px;font-size:12px;color:var(--roxo);margin-bottom:10px;letter-spacing:1px;text-transform:uppercase;">Pendências por conta</div>
+  <div class="final-grid" style="grid-template-columns:repeat(5,1fr);max-width:1000px;">
+    <div class="final-card"><div class="final-card-val">R$ 18,9M</div><div class="final-card-label">Projetos de TI</div></div>
+    <div class="final-card"><div class="final-card-val">R$ 6,6M</div><div class="final-card-label">Salesforce</div></div>
+    <div class="final-card"><div class="final-card-val">R$ 17,5M</div><div class="final-card-label">Terceiros</div></div>
+    <div class="final-card"><div class="final-card-val">R$ 9,5M</div><div class="final-card-label">Equipamentos</div></div>
+    <div class="final-card"><div class="final-card-val">R$ 2,95M</div><div class="final-card-label">Licenças Software</div></div>
   </div>
 </div>
 
 <script>
-  let current = 0;
-  const slides = document.querySelectorAll('.slide');
-  const total = slides.length;
-  function buildDots() {
-    const dotsEl = document.getElementById('navDots');
-    dotsEl.innerHTML = '';
-    for (let i = 0; i < total; i++) {
-      const d = document.createElement('div');
-      d.className = 'dot' + (i === current ? ' active' : '');
-      d.onclick = () => goTo(i);
-      dotsEl.appendChild(d);
-    }
+  let current=0;
+  const slides=document.querySelectorAll('.slide');
+  const total=slides.length;
+  function buildDots(){
+    const d=document.getElementById('navDots');d.innerHTML='';
+    for(let i=0;i<total;i++){const dot=document.createElement('div');dot.className='dot'+(i===current?' active':'');dot.onclick=()=>goTo(i);d.appendChild(dot);}
   }
-  function updateCounter() { document.getElementById('counter').textContent = (current + 1) + ' / ' + total; }
-  function goTo(n) {
-    slides[current].classList.remove('active');
-    current = (n + total) % total;
-    slides[current].classList.add('active');
-    buildDots(); updateCounter();
-  }
-  function nextSlide() { goTo(current + 1); }
-  function prevSlide() { goTo(current - 1); }
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
-  });
-  buildDots(); updateCounter();
+  function updateCounter(){document.getElementById('counter').textContent=(current+1)+' / '+total;}
+  function goTo(n){slides[current].classList.remove('active');current=(n+total)%total;slides[current].classList.add('active');buildDots();updateCounter();}
+  function nextSlide(){goTo(current+1);}
+  function prevSlide(){goTo(current-1);}
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown')nextSlide();if(e.key==='ArrowLeft'||e.key==='ArrowUp')prevSlide();});
+  buildDots();updateCounter();
 </script>
 </body>
 </html>
